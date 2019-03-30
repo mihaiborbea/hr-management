@@ -49,8 +49,7 @@ namespace API.Controllers
                     employee.Firstname,
                     employee.Lastname,
                     employee.Department,
-                    employee.HireDate,
-                    employee.Leaves
+                    employee.HireDate
                 });
             }
             return BadRequest(new { error = "Invalid Id" });
@@ -89,8 +88,7 @@ namespace API.Controllers
                 employee.Firstname,
                 employee.Lastname,
                 employee.HireDate,
-                employee.Department,
-                employee.Leaves
+                employee.Department
 
             });
         }
@@ -122,8 +120,7 @@ namespace API.Controllers
                 employee.Firstname,
                 employee.Lastname,
                 employee.HireDate,
-                employee.Department,
-                employee.Leaves
+                employee.Department
 
             });
         }

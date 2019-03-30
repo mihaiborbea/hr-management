@@ -76,6 +76,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AddLeavePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\DetailsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -103,6 +107,9 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Pages\AddEmployeePage.xaml.cs">
       <DependentUpon>AddEmployeePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddLeavePage.xaml.cs">
+      <DependentUpon>AddLeavePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\EmployeeDetailsPage.xaml.cs">
       <DependentUpon>EmployeeDetailsPage.xaml</DependentUpon>

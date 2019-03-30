@@ -13,7 +13,6 @@ namespace API.Models
         public string Lastname { get; set; }
         public Department Department { get; set; }
         public DateTime HireDate { get; set; }
-        public List<Leave> Leaves { get; set; }
     }
 
     public enum Department { Marketing, Management };

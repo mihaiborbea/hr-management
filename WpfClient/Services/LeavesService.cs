@@ -18,7 +18,7 @@ namespace WpfClient.Services
 
         public LeavesService()
         {
-            this.baseUrl = "http://localhost:5000/api";
+            this.baseUrl = "http://localhost:5000/api/employees/" + Globals.SelectedEmployee.Id;
         }
 
         public Leave GetLeave(Leave leaveId)
@@ -27,6 +27,7 @@ namespace WpfClient.Services
 
             WebClient wc = new WebClient();
             wc.Headers.Add("Content-Type", "application/json");
+            wc.Headers.Add("Token", Globals.LoggedInUser.access_token);
             try
             {
                 string response = wc.DownloadString(endpoint);
@@ -45,6 +46,7 @@ namespace WpfClient.Services
 
             WebClient wc = new WebClient();
             wc.Headers.Add("Content-Type", "application/json");
+            wc.Headers.Add("Token", Globals.LoggedInUser.access_token);
             try
             {
                 string response = wc.DownloadString(endpoint);
@@ -57,7 +59,7 @@ namespace WpfClient.Services
             }
         }
 
-        public Leave AddLeave(string employeeId,
+        public Leave AddLeave(int employeeId,
             DateTime start, DateTime end, LeaveType type)
         {
             string endpoint = this.baseUrl + "/leaves";
@@ -72,6 +74,7 @@ namespace WpfClient.Services
 
             WebClient wc = new WebClient();
             wc.Headers["Content-Type"] = "application/json";
+            wc.Headers.Add("Token", Globals.LoggedInUser.access_token);
             try
             {
                 string response = wc.UploadString(endpoint, method, json);
@@ -90,9 +93,10 @@ namespace WpfClient.Services
 
             WebClient wc = new WebClient();
             wc.Headers["Content-Type"] = "application/json";
+            wc.Headers.Add("Token", Globals.LoggedInUser.access_token);
             try
             {
-                string response = wc.UploadString(endpoint, method);
+                string response = wc.UploadString(endpoint, method, "");
                 return JsonConvert.DeserializeObject<Leave>(response);
             }
             catch (Exception)

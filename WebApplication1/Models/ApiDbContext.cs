@@ -13,6 +13,7 @@ namespace API.Models
 
         public List<User> Users { get; set; }
         public List<Employee> Employees { get; set; }
+        public List<Leave> Leaves { get; set; }
 
         public ApiDbContext()
         {
@@ -48,6 +49,22 @@ namespace API.Models
             // Save employees
             string json = JsonConvert.SerializeObject(this.Employees);
             string filename = "/employees.json";
+            File.WriteAllText(this.datastore + filename, json);
+        }
+
+        public void InitializeLeavesStore()
+        {
+            // Get employees
+            string filename = "/leaves.json";
+            string json = File.ReadAllText(this.datastore + filename);
+            this.Leaves = JsonConvert.DeserializeObject<List<Leave>>(json);
+        }
+
+        public void SaveLeavesChanges()
+        {
+            // Save employees
+            string json = JsonConvert.SerializeObject(this.Leaves);
+            string filename = "/leaves.json";
             File.WriteAllText(this.datastore + filename, json);
         }
     }

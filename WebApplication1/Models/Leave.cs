@@ -8,6 +8,7 @@ namespace API.Models
     public class Leave
     {
         public int Id { get; set; }
+        public int EmployeeId { get; set; }
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
         public LeaveType Type { get; set; }
