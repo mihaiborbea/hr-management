@@ -60,8 +60,8 @@ namespace WpfClient.Operations
             string access_token = user.access_token;
 
             WebClient wc = new WebClient();
-            wc.Headers["Content-Type"] = "application/json";
-            wc.Headers["Authorization"] = access_token;
+            wc.Headers.Add("Content-Type", "application/json");
+            wc.Headers.Add("Authorization", access_token);
             try
             {
                 string response = wc.DownloadString(endpoint);
@@ -69,8 +69,9 @@ namespace WpfClient.Operations
                 user.access_token = access_token;
                 return user;
             }
-            catch (Exception e)
+            catch (WebException e)
             {
+                MessageBox.Show(e.Message);
                 return null;
             }
         }

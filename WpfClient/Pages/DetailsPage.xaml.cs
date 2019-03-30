@@ -30,7 +30,6 @@ namespace WpfClient.Pages
         {
             ApiOperations ops = new ApiOperations();
             User user = ops.GetUserDetails(Globals.LoggedInUser);
-            MessageBox.Show(Globals.LoggedInUser.Id.ToString());
             if (user == null)
             {
                 MessageBox.Show("Session expired");

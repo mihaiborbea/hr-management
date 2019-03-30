@@ -56,7 +56,7 @@ namespace WpfClient.Pages
                 access_token = user.access_token
             };
 
-            MessageBox.Show("Login successful" + Globals.LoggedInUser.Id);
+            MessageBox.Show("Login successful " + Globals.LoggedInUser.access_token);
             NavigationService.Navigate(new DetailsPage());
         }
 
