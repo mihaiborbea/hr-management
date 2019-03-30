@@ -91,7 +91,7 @@ namespace WpfClient.Services
             }
         }
 
-        public Leave RemoveLeave(string leaveId)
+        public Leave RemoveLeave(int leaveId)
         {
             string endpoint = this.baseUrl + "/leaves/" + leaveId;
             string method = "Delete";
