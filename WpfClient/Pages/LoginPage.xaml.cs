@@ -60,11 +60,6 @@ namespace WpfClient.Pages
             NavigationService.Navigate(new DetailsPage(), user);
         }
 
-        /**
-         * Method to direct user to Register Page
-         * @param object sender
-         * @param RoutedEventArgs e
-         */
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new RegistrationPage());
