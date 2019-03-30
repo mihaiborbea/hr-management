@@ -93,6 +93,8 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Leave.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Services\EmployeesService.cs" />
+    <Compile Include="Services\LeavesService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Pages\DetailsPage.xaml.cs">
       <DependentUpon>DetailsPage.xaml</DependentUpon>

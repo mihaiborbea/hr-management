@@ -22,19 +22,29 @@ namespace WpfClient.Pages
     /// </summary>
     public partial class EmployeesPage : Page
     {
-        public ObservableCollection<User> Customers;
+        public ObservableCollection<Employee> Employees;
 
         public EmployeesPage()
         {
             InitializeComponent();
 
-            Customers = new ObservableCollection<User>();
-            DG1.DataContext = Customers;
+            Employees = new ObservableCollection<Employee>();
+            DG1.DataContext = Employees;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Customers.Add(Globals.LoggedInUser);
+            Employee emp = new Employee
+            {
+                Firstname = "Dummy",
+                Lastname = "Data",
+                Email = "dummy.data@gmail.com",
+                Department = Department.Management
+            };
+            for (var i = 0; i < 5; i++)
+            {
+                Employees.Add(emp);
+            }
         }
     }
 }

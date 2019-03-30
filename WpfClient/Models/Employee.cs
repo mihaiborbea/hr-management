@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfClient.Models
 {
-    class Employee
+    public class Employee
     {
         public int Id { get; set; }
         public string Email { get; set; }
@@ -15,6 +15,6 @@ namespace WpfClient.Models
         public Department Department { get; set; }
     }
 
-    enum Department { Marketing, Management};
+    public enum Department { Marketing, Management};
 
 }
