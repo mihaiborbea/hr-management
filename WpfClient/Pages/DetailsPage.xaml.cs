@@ -12,39 +12,16 @@ using WpfClient.Operations;
 
 namespace WpfClient.Pages
 {
-    public partial class DetailsPage : Page, INotifyPropertyChanged
+    public partial class DetailsPage : Page
     {
-        private User _loggedUser;
-
-        public User LoggedUser
-        {
-            get { return _loggedUser; }
-            set
-            {
-                if (value.Username != _loggedUser.Username)
-                {
-                    _loggedUser = value;
-                    OnPropertyChanged("LoggedUser");
-                }
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         public DetailsPage()
         {
             InitializeComponent();
-            NavigationService.LoadCompleted += NavigationService_LoadCompleted;
         }
 
-        private void NavigationService_LoadCompleted(object sender, NavigationEventArgs e)
+        public void detailsPage_Loaded(Object sender, RoutedEventArgs e)
         {
-            LoggedUser = (User)e.ExtraData;
             FetchUserDetails();
             ShowUserInfo();
         }
@@ -52,23 +29,24 @@ namespace WpfClient.Pages
         private void FetchUserDetails()
         {
             ApiOperations ops = new ApiOperations();
-            User user = ops.GetUserDetails(LoggedUser);
+            User user = ops.GetUserDetails(Globals.LoggedInUser);
+            MessageBox.Show(Globals.LoggedInUser.Id.ToString());
             if (user == null)
             {
                 MessageBox.Show("Session expired");
                 NavigationService.Navigate(new LoginPage());
                 return;
             }
-            LoggedUser = user;
+            Globals.LoggedInUser = user;
         }
         
         private void ShowUserInfo()
         {
-            tbkWelcome.Text = LoggedUser.Username;
-            tbkFname.Text = LoggedUser.Firstname;
-            tbkMname.Text = LoggedUser.Middlename;
-            tbkLname.Text = LoggedUser.Lastname;
-            tbkAge.Text = LoggedUser.Age.ToString();
+            tbkWelcome.Text = Globals.LoggedInUser.Username;
+            tbkFname.Text = Globals.LoggedInUser.Firstname;
+            tbkMname.Text = Globals.LoggedInUser.Middlename;
+            tbkLname.Text = Globals.LoggedInUser.Lastname;
+            tbkAge.Text = Globals.LoggedInUser.Age.ToString();
         }
         
         private void btnLogout_Click(object sender, RoutedEventArgs e)

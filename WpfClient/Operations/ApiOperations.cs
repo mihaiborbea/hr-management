@@ -6,6 +6,7 @@ using System.Text;
 using WpfClient.Models;
 using Newtonsoft.Json;
 using System.Net;
+using System.Windows;
 
 namespace WpfClient.Operations
 {
@@ -68,7 +69,7 @@ namespace WpfClient.Operations
                 user.access_token = access_token;
                 return user;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return null;
             }

@@ -48,8 +48,19 @@ namespace WpfClient.Pages
                 MessageBox.Show("Username already exists");
                 return;
             }
+
+            Globals.LoggedInUser = new User
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Lastname = user.Lastname,
+                Firstname = user.Firstname,
+                Middlename = user.Middlename,
+                Age = user.Age,
+                access_token = user.access_token
+            };
             MessageBox.Show("Registration successful");
-            NavigationService.Navigate(new DetailsPage(), user);
+            NavigationService.Navigate(new DetailsPage());
         }
 
         /**

@@ -57,7 +57,7 @@ namespace WpfClient.Pages
             };
 
             MessageBox.Show("Login successful" + Globals.LoggedInUser.Id);
-            NavigationService.Navigate(new DetailsPage(), user);
+            NavigationService.Navigate(new DetailsPage());
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
