@@ -43,7 +43,7 @@ namespace WpfClient.Pages
 
         private void BtnAddLeave_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AddLeavePage());
         }
 
         private void BtnDetele_Click(object sender, RoutedEventArgs e)

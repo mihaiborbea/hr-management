@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using WpfClient.Models;
 
 namespace WpfClient.Services
@@ -18,7 +19,7 @@ namespace WpfClient.Services
 
         public LeavesService()
         {
-            this.baseUrl = "http://localhost:5000/api/employees/" + Globals.SelectedEmployee.Id;
+            this.baseUrl = "http://localhost:5000/api";
         }
 
         public Leave GetLeave(Leave leaveId)
@@ -40,9 +41,13 @@ namespace WpfClient.Services
             }
         }
 
-        public List<Leave> GetLeaves()
+        public List<Leave> GetLeaves(int employeeId = 0)
         {
             string endpoint = this.baseUrl + "/leaves";
+            if(employeeId > 0)
+            {
+                endpoint += "?employeeId=" + employeeId;
+            }
 
             WebClient wc = new WebClient();
             wc.Headers.Add("Content-Type", "application/json");

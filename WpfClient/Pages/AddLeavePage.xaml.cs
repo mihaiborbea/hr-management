@@ -26,6 +26,7 @@ namespace WpfClient.Pages
         {
             InitializeComponent();
             tbxLeaveType.ItemsSource = Enum.GetValues(typeof(LeaveType));
+            tbxEmployee.Text = Globals.SelectedEmployee.Lastname + " " + Globals.SelectedEmployee.Firstname;
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)

@@ -80,7 +80,20 @@ namespace WpfClient.Pages
 
         private void BtnAddLeave_Click(object sender, RoutedEventArgs e)
         {
-
+            for (var vis = sender as Visual; vis != null; vis = VisualTreeHelper.GetParent(vis) as Visual)
+                if (vis is DataGridRow)
+                {
+                    var rows = GetDataGridRowsForButtons(DG1);
+                    EmployeesService ops = new EmployeesService();
+                    foreach (DataGridRow dr in rows)
+                    {
+                        var emp = ops.GetEmployee((dr.Item as Employee).Id);
+                        Globals.SelectedEmployee = emp;
+                        NavigationService.Navigate(new AddLeavePage());
+                        break;
+                    }
+                    break;
+                }
         }
 
         private IEnumerable<DataGridRow> GetDataGridRowsForButtons(DataGrid grid)

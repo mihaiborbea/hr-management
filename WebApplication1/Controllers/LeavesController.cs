@@ -62,10 +62,14 @@ namespace API.Controllers
                 return BadRequest(ModelState);
             }
 
+            string token = this.Request.Headers["Token"];
+            if (token == null)
+                return BadRequest(new { error = "No authorization header" });
+
             var leaves = _db.Leaves;
 
             // Validate uniqueness of submitted email
-            if (leaves.FirstOrDefault(u => u.EmployeeId == leave.EmployeeId && (leave.Start > u.Start && leave.End < u.End)) != null)
+            if (leaves.FirstOrDefault(u => (leave.Start > u.Start && leave.Start < u.End) || (leave.End < u.End && leave.End > u.Start)) != null)
             {
                 return BadRequest(new { error = "Invalid leave" });
             }
@@ -85,8 +89,7 @@ namespace API.Controllers
                 leave.EmployeeId,
                 leave.Start,
                 leave.End,
-                leave.Type,
-
+                leave.Type
             });
         }
 
@@ -116,8 +119,7 @@ namespace API.Controllers
                 leave.EmployeeId,
                 leave.Start,
                 leave.End,
-                leave.Type,
-
+                leave.Type
             });
         }
     }

@@ -12,7 +12,7 @@
         <StackPanel HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="300">
             <TextBlock Text="Adauga Concediu" HorizontalAlignment="Center" FontSize="26" />
             <TextBlock Text="Angajat:" Margin="0,5,0,0" />
-            <TextBox x:Name="tbxEmployee" Padding="5" />
+            <TextBlock x:Name="tbxEmployee" Padding="5" />
             <TextBlock Text="De la:" Margin="0,5,0,0" />
             <DatePicker x:Name="tbxStart" Padding="5" />
             <TextBlock Text="Pana la:" Margin="0,5,0,0" />
