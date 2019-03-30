@@ -97,7 +97,7 @@ namespace WebApplication1.Controllers
                 user.Id = users.Last().Id + 1;
 
             _db.Users.Add(user);
-            _db.SaveChanges();
+            _db.SaveUserChanges();
 
             string accessToken = JWTAuth.GenerateToken(user);
             return new ObjectResult(new

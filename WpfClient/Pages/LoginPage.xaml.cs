@@ -37,7 +37,7 @@ namespace WpfClient.Pages
             string email = tbxEmail.Text;
             string password = pbxPassword.Password;
 
-            ApiOperations ops = new ApiOperations();
+            UserService ops = new UserService();
             User user = ops.AuthenticateUser(email, password);
             if (user == null)
             {

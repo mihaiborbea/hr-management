@@ -14,10 +14,10 @@ namespace WebApplication1.Models
         public ApiDbContext()
         {
             this.datastore = "./Datastore";
-            InitializeFieldValues();
+            InitializeUsersStore();
         }
 
-        private void InitializeFieldValues()
+        private void InitializeUsersStore()
         {
             // Get users
             string filename = "/users.json";
@@ -27,7 +27,7 @@ namespace WebApplication1.Models
 
         public List<User> Users { get; set; }
 
-        public void SaveChanges()
+        public void SaveUserChanges()
         {
             // Save users
             string json = JsonConvert.SerializeObject(this.Users);

@@ -28,7 +28,7 @@ namespace WpfClient.Pages
 
         private void FetchUserDetails()
         {
-            ApiOperations ops = new ApiOperations();
+            UserService ops = new UserService();
             User user = ops.GetUserDetails(Globals.LoggedInUser);
             if (user == null)
             {
@@ -49,6 +49,11 @@ namespace WpfClient.Pages
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new LoginPage());
+        }
+
+        private void BtnEmployees_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new EmployeesPage());
         }
     }
 }

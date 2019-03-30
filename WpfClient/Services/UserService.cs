@@ -9,14 +9,14 @@ using System.Net;
 
 namespace WpfClient.Operations
 {
-    class ApiOperations
+    class UserService
     {
         /**
          * Base Url @string
          */
         private string baseUrl;
 
-        public ApiOperations()
+        public UserService()
         {
             this.baseUrl = "http://localhost:5000/api";
         }

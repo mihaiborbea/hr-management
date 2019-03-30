@@ -39,7 +39,7 @@ namespace WpfClient.Pages
             string firstname = tbxFirstname.Text;
             string lastname = tbxLastname.Text;
 
-            ApiOperations ops = new ApiOperations();
+            UserService ops = new UserService();
             User user = ops.RegisterUser(email, password, firstname, lastname);
             if (user == null)
             {
