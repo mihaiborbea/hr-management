@@ -33,7 +33,7 @@ namespace WpfClient.Pages
             string email = tbxEmail.Text;
             string firstname = tbxFirstname.Text;
             string lastname = tbxLastname.Text;
-            DateTime hiredate = tbxHireDate.DisplayDate;
+            DateTime hiredate = tbxHireDate.SelectedDate.Value;
             Enum.TryParse(tbxDepartment.Text, out Department department);
 
             EmployeesService ops = new EmployeesService();
