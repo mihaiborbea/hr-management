@@ -10,5 +10,6 @@ namespace WpfClient
     class Globals
     {
         public static User LoggedInUser { get; set; }
+        public static Employee SelectedEmployee { get; set; }
     }
 }

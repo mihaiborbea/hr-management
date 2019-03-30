@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
-using WebApplication1.Helpers;
-using WebApplication1.Models; 
+using API.Helpers;
+using API.Models; 
 
-namespace WebApplication1.Auth
+namespace API.Auth
 {
     public class JWTAuth
     {

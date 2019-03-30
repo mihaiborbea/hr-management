@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebApplication1.Helpers
+namespace API.Helpers
 {
     public enum JwtHashAlgorithm
     {

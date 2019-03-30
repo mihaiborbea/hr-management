@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-using WebApplication1.Auth;
-using WebApplication1.Models;
+using API.Auth;
+using API.Models;
 
-namespace WebApplication1.Controllers
+namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -18,6 +18,7 @@ namespace WebApplication1.Controllers
         public UsersController()
         {
             _db = new ApiDbContext();
+            _db.InitializeUsersStore();
         }
 
         // GET

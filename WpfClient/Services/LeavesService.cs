@@ -33,7 +33,7 @@ namespace WpfClient.Services
                 var leave = JsonConvert.DeserializeObject<Leave>(response);
                 return leave;
             }
-            catch (WebException e)
+            catch (WebException)
             {
                 return null;
             }
@@ -51,13 +51,13 @@ namespace WpfClient.Services
                 var leaves = JsonConvert.DeserializeObject<List<Leave>>(response);
                 return leaves;
             }
-            catch (WebException e)
+            catch (WebException)
             {
                 return null;
             }
         }
 
-        public Leave AddLeave(string employeeId, string employeeName,
+        public Leave AddLeave(string employeeId,
             DateTime start, DateTime end, LeaveType type)
         {
             string endpoint = this.baseUrl + "/leaves";
@@ -65,7 +65,6 @@ namespace WpfClient.Services
             string json = JsonConvert.SerializeObject(new
             {
                 employeeId = employeeId,
-                employeeName = employeeName,
                 start = start,
                 end = end,
                 type = type

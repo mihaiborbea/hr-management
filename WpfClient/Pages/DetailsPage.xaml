@@ -10,8 +10,8 @@
        Loaded="detailsPage_Loaded">
     <Grid>
         <StackPanel Margin="0" VerticalAlignment="Center">
-            <TextBlock x:Name="tbkWelcome" Text="BUN VENIT !" HorizontalAlignment="Center" FontSize="36" />
-            <Grid HorizontalAlignment="Center" Width="200">
+            <TextBlock x:Name="tbkWelcome" Text="BUN VENIT !" HorizontalAlignment="Center" FontSize="20" />
+            <Grid HorizontalAlignment="Center" Width="200" Margin="0,15">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
