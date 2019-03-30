@@ -9,21 +9,17 @@
       Title="RegistrationPage">
     <Grid>
         <StackPanel HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Width="300">
-            <TextBlock Text="Create Account" HorizontalAlignment="Center" FontSize="36" />
-            <TextBlock Text="Username:" Margin="0,5,0,0" />
-            <TextBox x:Name="tbxUsername" Padding="5" />
-            <TextBlock Text="Password:" Margin="0,5,0,0" />
+            <TextBlock Text="Creaza Cont" HorizontalAlignment="Center" FontSize="36" />
+            <TextBlock Text="Email:" Margin="0,5,0,0" />
+            <TextBox x:Name="tbxEmail" Padding="5" />
+            <TextBlock Text="Parola:" Margin="0,5,0,0" />
             <PasswordBox x:Name="pbxPassword" Padding="5" />
-            <TextBlock Text="Firstname:" Margin="0,5,0,0" />
+            <TextBlock Text="Prenume:" Margin="0,5,0,0" />
             <TextBox x:Name="tbxFirstname" Padding="5" />
-            <TextBlock Text="Middlename:" Margin="0,5,0,0" />
-            <TextBox x:Name="tbxMiddlename" Padding="5" />
-            <TextBlock Text="Lastname:" Margin="0,5,0,0" />
+            <TextBlock Text="Nume:" Margin="0,5,0,0" />
             <TextBox x:Name="tbxLastname" Padding="5" />
-            <TextBlock Text="Age:" Margin="0,5,0,0" />
-            <TextBox x:Name="tbxAge" Padding="5" />
-            <Button x:Name="btnReg" Content="REGISTER" Padding="5" Margin="0,5,0,0" Click="btnReg_Click" />
-            <Button x:Name="btnBack" Content="BACK" Padding="5" Margin="0,5,0,0" Click="btnBack_Click" />
+            <Button x:Name="btnReg" Content="INREGISTREAZA-TE" Padding="5" Margin="0,5,0,0" Click="btnReg_Click" />
+            <Button x:Name="btnBack" Content="INAPOT" Padding="5" Margin="0,5,0,0" Click="btnBack_Click" />
         </StackPanel>
     </Grid>
 </Page>

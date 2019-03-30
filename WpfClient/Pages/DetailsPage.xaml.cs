@@ -41,11 +41,9 @@ namespace WpfClient.Pages
         
         private void ShowUserInfo()
         {
-            tbkWelcome.Text = Globals.LoggedInUser.Username;
+            tbkWelcome.Text = Globals.LoggedInUser.Email;
             tbkFname.Text = Globals.LoggedInUser.Firstname;
-            tbkMname.Text = Globals.LoggedInUser.Middlename;
             tbkLname.Text = Globals.LoggedInUser.Lastname;
-            tbkAge.Text = Globals.LoggedInUser.Age.ToString();
         }
         
         private void btnLogout_Click(object sender, RoutedEventArgs e)

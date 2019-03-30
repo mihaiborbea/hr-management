@@ -30,7 +30,7 @@ namespace WebApplication1.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            string token = this.Request.Headers["Authorization"];
+            string token = this.Request.Headers["Token"];
             if (token == null)
                 return BadRequest(new { error = "No authorization header" });
 
@@ -45,11 +45,9 @@ namespace WebApplication1.Controllers
             return new ObjectResult(new
             {
                 user.Id,
-                user.Username,
+                user.Email,
                 user.Firstname,
-                user.Middlename,
                 user.Lastname,
-                user.Age
             });
         }
 
@@ -62,7 +60,7 @@ namespace WebApplication1.Controllers
             }
 
             User _user = _db.Users.FirstOrDefault(
-                u => u.Username == user.Username &&
+                u => u.Email == user.Email &&
                 u.Password == user.Password);
 
             if (_user == null)
@@ -72,7 +70,7 @@ namespace WebApplication1.Controllers
             return new ObjectResult(new
             {
                 _user.Id,
-                _user.Username,
+                _user.Email,
                 access_token = accessToken
             });
         }
@@ -87,9 +85,9 @@ namespace WebApplication1.Controllers
 
             var users = _db.Users;
 
-            // Validate uniqueness of submitted username
-            if (users.FirstOrDefault(u => u.Username == user.Username) != null) {
-                return BadRequest(new { error = "Username already in use" });
+            // Validate uniqueness of submitted email
+            if (users.FirstOrDefault(u => u.Email == user.Email) != null) {
+                return BadRequest(new { error = "Email already in use" });
             }
 
             // Auto increment Id
@@ -105,7 +103,7 @@ namespace WebApplication1.Controllers
             return new ObjectResult(new
             {
                 user.Id,
-                user.Username,
+                user.Email,
                 access_token = accessToken
             });
         }

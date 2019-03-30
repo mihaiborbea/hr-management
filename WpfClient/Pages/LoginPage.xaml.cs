@@ -34,29 +34,27 @@ namespace WpfClient.Pages
          */
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            string username = tbxUsername.Text;
+            string email = tbxEmail.Text;
             string password = pbxPassword.Password;
 
             ApiOperations ops = new ApiOperations();
-            User user = ops.AuthenticateUser(username, password);
+            User user = ops.AuthenticateUser(email, password);
             if (user == null)
             {
-                MessageBox.Show("Invalid username or password");
+                MessageBox.Show("Email sau parola invalide!");
                 return;
             }
 
             Globals.LoggedInUser = new User
             {
                 Id = user.Id,
-                Username = user.Username,
+                Email = user.Email,
                 Lastname = user.Lastname,
                 Firstname = user.Firstname,
-                Middlename = user.Middlename,
-                Age = user.Age,
                 access_token = user.access_token
             };
 
-            MessageBox.Show("Login successful " + Globals.LoggedInUser.access_token);
+            MessageBox.Show("Autentificare cu succes!");
             NavigationService.Navigate(new DetailsPage());
         }
 

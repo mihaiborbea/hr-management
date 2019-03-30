@@ -19,7 +19,7 @@ namespace WebApplication1.Auth
             var payload = new Dictionary<string, object>
             {
                 {"user_id", user.Id},
-                {"username", user.Username},
+                {"email", user.Email},
                 {"expires", expires}
             };
             

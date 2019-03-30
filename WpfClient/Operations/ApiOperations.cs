@@ -6,7 +6,6 @@ using System.Text;
 using WpfClient.Models;
 using Newtonsoft.Json;
 using System.Net;
-using System.Windows;
 
 namespace WpfClient.Operations
 {
@@ -21,19 +20,14 @@ namespace WpfClient.Operations
         {
             this.baseUrl = "http://localhost:5000/api";
         }
-
-        /**
-         * Authenticate user with Web Api Endpoint
-         * @param string username
-         * @param string password
-         */
-        public User AuthenticateUser(string username, string password)
+        
+        public User AuthenticateUser(string email, string password)
         {
             string endpoint = this.baseUrl + "/users/login";
             string method = "POST";
             string json = JsonConvert.SerializeObject(new
             {
-                username = username,
+                email = email,
                 password = password
             });
 
@@ -61,7 +55,7 @@ namespace WpfClient.Operations
 
             WebClient wc = new WebClient();
             wc.Headers.Add("Content-Type", "application/json");
-            wc.Headers.Add("Authorization", access_token);
+            wc.Headers.Add("Token", access_token);
             try
             {
                 string response = wc.DownloadString(endpoint);
@@ -71,33 +65,21 @@ namespace WpfClient.Operations
             }
             catch (WebException e)
             {
-                MessageBox.Show(e.Message);
                 return null;
             }
         }
-
-        /**
-         * Register User
-         * @param  string username
-         * @param  string password
-         * @param  string firstname
-         * @param  string lastname
-         * @param  string middlename
-         * @param  int    age
-         */
-        public User RegisterUser(string username, string password, string firstname,
-            string lastname, string middlename, int age)
+        
+        public User RegisterUser(string email, string password, string firstname,
+            string lastname)
         {
             string endpoint = this.baseUrl + "/users";
             string method = "POST";
             string json = JsonConvert.SerializeObject(new
             {
-                username = username,
+                email = email,
                 password = password,
                 firstname = firstname,
                 lastname = lastname,
-                middlename = middlename,
-                age = age
             });
 
             WebClient wc = new WebClient();

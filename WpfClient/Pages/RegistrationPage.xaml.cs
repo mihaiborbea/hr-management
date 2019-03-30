@@ -34,32 +34,28 @@ namespace WpfClient.Pages
          */
         private void btnReg_Click(object sender, RoutedEventArgs e)
         {
-            string username = tbxUsername.Text;
+            string email = tbxEmail.Text;
             string password = pbxPassword.Password;
             string firstname = tbxFirstname.Text;
             string lastname = tbxLastname.Text;
-            string middlename = tbxMiddlename.Text;
-            int age = int.Parse(tbxAge.Text);
 
             ApiOperations ops = new ApiOperations();
-            User user = ops.RegisterUser(username, password, firstname, lastname, middlename, age);
+            User user = ops.RegisterUser(email, password, firstname, lastname);
             if (user == null)
             {
-                MessageBox.Show("Username already exists");
+                MessageBox.Show("Email deja folosit!");
                 return;
             }
 
             Globals.LoggedInUser = new User
             {
                 Id = user.Id,
-                Username = user.Username,
+                Email = user.Email,
                 Lastname = user.Lastname,
                 Firstname = user.Firstname,
-                Middlename = user.Middlename,
-                Age = user.Age,
                 access_token = user.access_token
             };
-            MessageBox.Show("Registration successful");
+            MessageBox.Show("Inregistrare cu succes!");
             NavigationService.Navigate(new DetailsPage());
         }
 
